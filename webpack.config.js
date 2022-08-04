@@ -5,7 +5,7 @@ const isDevelopment = process.env.NODE_ENV !== 'production'
 
 module.exports = {
   mode: isDevelopment ? 'development' : 'production',
-  entry: path.resolve(__dirname, 'transpiled', 'index.js'),
+  entry: path.resolve(__dirname, 'src', 'index.js'),
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle[hash].js',
@@ -16,4 +16,14 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
   ],
+
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: 'babel-loader',
+      },
+    ]
+  },
 };
