@@ -1,14 +1,14 @@
 import React  from "react";
 import PropTypes from 'prop-types';
 
-export function Post({post, likes}) {
+export function Post({ likes, post }) {
   return (
   <>
   <article>
-    <h3>{post.title}</h3>
-    <small>{post.title}</small>
+    <h3>{ post.title }</h3>
+    <small>{ post.subtitle }</small>
     <br />
-   Media: {likes / 2}
+    <p> Media: { likes / 2 } </p>
   </article>
   </>
   );
@@ -19,5 +19,5 @@ Post.propTypes = {
   Post: PropTypes.shape({
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired,
-  }).isRequired,
+  }),
 };
