@@ -13,7 +13,6 @@ export function App() {
   ]);
 
   function handleRefresh() {
-    setTimeout(() => {
       setPosts((prevState) => [
         ...prevState,
          { 
@@ -24,8 +23,11 @@ export function App() {
       },
     
       ]);
-    }, 2000);
-  }
+    }
+
+    function handleRemovePost(postId) {
+      setPosts((prevState) => prevState.filter(post => post.id !== postId));
+    }
 
 
   return (
@@ -42,8 +44,10 @@ export function App() {
     {posts.map(post => (
       <Post
         key={post.id}
-        likes={ post.likes}
+        likes={post.likes}
+        onRemove={handleRemovePost}
         post={{
+          id: post.id,
           title: post.title,
           subtitle: post.subtitle,
         }}
