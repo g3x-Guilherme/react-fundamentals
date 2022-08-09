@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { Post }  from './Post'
 import { Header } from './Header'
+import { ThemeProvider } from "./ThemeContext"
 
+ 
 
 
 export function App() {
+
 
   const [posts, setPosts] = useState([
     { id: Math.random(), title: 'Title#01', subtitle: 'Sub#01', likes: 20, read: false },
@@ -32,7 +35,7 @@ export function App() {
 
 
   return (
-    <>
+    <ThemeProvider>
     <Header>
     <h2>
       Posts da semana
@@ -49,6 +52,6 @@ export function App() {
         post={post}
       />
      ))}
-     </>
+     </ThemeProvider>
   );
 }
