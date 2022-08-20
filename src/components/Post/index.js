@@ -1,6 +1,8 @@
 import React  from "react";
 import PropTypes from 'prop-types';
 import { PostHeader } from './PostHeader'
+
+import {Subtitle, Rate} from './styles';
 export function Post({ post, onRemove }) {
 
   return (
@@ -13,10 +15,9 @@ export function Post({ post, onRemove }) {
         read: post.read,
       }}
         />
-      <br />
-      <small>{ post.subtitle }</small>
-      <br />
-      <p> Media: { post.likes / 2 } </p>
+
+      <Subtitle>{ post.subtitle }</Subtitle>
+      <Rate> Media: { post.likes / 2 } </Rate>
   </article>
   );
 }
