@@ -3,12 +3,7 @@ import PropTypes from "prop-types";
 import { Button } from "../Button";
 import { ThemeContext } from "../../context/ThemeContext"
 
-import styled from 'styled-components';
-
-const Title = styled.h1`
-  color: #637BF3;
-`;
-
+import Title from '../Title';
 export function Header({ title, children }) {
 
   const { onToggleTheme } = useContext(ThemeContext)

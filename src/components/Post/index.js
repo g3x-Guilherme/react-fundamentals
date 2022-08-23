@@ -2,11 +2,12 @@ import React  from "react";
 import PropTypes from 'prop-types';
 import { PostHeader } from './PostHeader'
 
-import {Subtitle, Rate} from './styles';
+import { Container, Subtitle, Rate } from './styles';
 export function Post({ post, onRemove }) {
 
   return (
-    <article>
+    <Container removed={post.removed}>
+
       <PostHeader 
       onRemove={onRemove}
       post={{
@@ -18,7 +19,7 @@ export function Post({ post, onRemove }) {
 
       <Subtitle>{ post.subtitle }</Subtitle>
       <Rate> Media: { post.likes / 2 } </Rate>
-  </article>
+  </Container>
   );
 }
 
